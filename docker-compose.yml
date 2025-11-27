@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: marketing_dashboard_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: marketing_dashboard
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database_setup.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - marketing_network
+
+  api:
+    build: .
+    container_name: marketing_dashboard_api
+    environment:
+      DATABASE_URL: mysql+pymysql://root:password@mysql:3306/marketing_dashboard
+      JWT_SECRET_KEY: your-super-secret-jwt-key-change-this-in-production
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    volumes:
+      - .:/app
+    networks:
+      - marketing_network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+
+networks:
+  marketing_network:
+    driver: bridge

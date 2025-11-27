@@ -1,0 +1,48 @@
+/* Updated blue theme variables - no black */
+:root {
+  /* Light mode - blue theme */
+  --bg-primary-light: #F0F8FF;        /* Very light blue-white */
+  --bg-secondary-light: #6BC4F2;      /* Light sky blue */
+  --bg-tertiary-light: #4C9CC9;       /* Medium blue */
+  --text-primary-light: #097BA8;      /* Deep blue text */
+  --text-secondary-light: #52ABD8;    /* Bright blue secondary */
+  --accent-primary: #52ABD8;          /* Bright blue accent */
+  
+  /* Dark mode - blue theme */
+  --bg-primary-dark: #097BA8;         /* Deep blue instead of black */
+  --bg-secondary-dark: #4C9CC9;       /* Medium blue for cards */
+  --bg-tertiary-dark: #52ABD8;        /* Bright blue accents */
+  --text-primary-dark: #FFFFFF;       /* White text */
+  --text-secondary-dark: #6BC4F2;     /* Light blue secondary */
+  --accent-secondary: #6BC4F2;        /* Light blue accent */
+}
+
+[data-theme="light"] {
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --bg-tertiary: var(--bg-tertiary-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+}
+
+[data-theme="dark"] {
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --bg-tertiary: var(--bg-tertiary-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+}
+
+.light-theme {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark-theme {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

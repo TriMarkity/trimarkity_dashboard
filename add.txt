@@ -1,0 +1,2 @@
+image to the login and the signup page
+for the email it shoulb be trimarkity.app/email
