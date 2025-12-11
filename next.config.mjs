@@ -9,16 +9,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  
+
   env: {
-    CUSTOM_BASE_URL: process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
+    CUSTOM_BASE_URL: process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
       : process.env.NEXTAUTH_URL || 'http://localhost:3000',
   },
-  
+
   poweredByHeader: false,
   compress: true,
-  
+
   // 🎯 NO PROXY REWRITES - Direct custom domain access
   async headers() {
     return [
