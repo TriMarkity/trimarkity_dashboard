@@ -153,7 +153,7 @@ export default function MarketingDashboard() {
       console.warn('⚠️ Could not decode token payload:', e)
     }
 
-    const emailAppUrl = `http://65.1.148.66/?token=${encodeURIComponent(authToken)}`
+    const emailAppUrl = `https://emp.trimarkity.app/?token=${encodeURIComponent(authToken)}`
     console.log('🔄 Redirecting to:', emailAppUrl)
 
     window.location.href = emailAppUrl
